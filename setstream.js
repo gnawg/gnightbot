@@ -10,12 +10,13 @@
   var q = "$(query)";
   var date = new Date(Date.now());
   var stringdate = "";
+  var streamtime = " 06:00:00 PM EST5EDT";
   if (q == "today") {
-    stringdate = date.toDateString().slice(4).concat(" 06:00:00 PM EST5EDT");
+    stringdate = date.toDateString().slice(4).concat(streamtime);
   }
   else if (q == "tomorrow") {
     date.setDate(date.getDate()+1);
-    stringdate = date.toDateString().slice(4).concat(" 06:00:00 PM EST5EDT");
+    stringdate = date.toDateString().slice(4).concat(streamtime);
   }
   else {
     stringdate = q;
@@ -25,4 +26,4 @@
 
 //The above eval, copy-pasted, won't actually fit in a twitch chatbox or a nightbot console.
 //This Jerma-sized compact format will, though:
-!addcom !setstream -a=!editcom !stream $(eval var q = "$(query)"; var d = new Date(Date.now()); var s = ""; if (q == "today") { s = d.toDateString().slice(4).concat(" 06:00:00 PM EST5EDT"); } else if (q == "tomorrow") { d.setDate(d.getDate()+1); s = d.toDateString().slice(4).concat(" 06:00:00 PM EST5EDT"); } else { s = q; }"You think I'm some kind of time servant that will tell you the next scheduled stream is in $".concat(String.fromCharCode(40),"countdown ",s,String.fromCharCode(41),"?"); )
+!addcom !setstream -ul=mod -a=!editcom !stream $(eval var q = "$(query)"; var d = new Date(Date.now()); var s = ""; var t = " 06:00:00 PM EST5EDT"; if (q == "today") { s = d.toDateString().slice(4).concat(t); } else if (q == "tomorrow") { d.setDate(d.getDate()+1); s = d.toDateString().slice(4).concat(t); } else { s = q; }"You think I'm some kind of time servant that will tell you the next scheduled stream is in $".concat(String.fromCharCode(40),"countdown ",s,String.fromCharCode(41),"?"); )
