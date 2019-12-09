@@ -1,5 +1,5 @@
 $(eval
-var scalar = $(1);
+var scalar = parseFloat($(1));
 var unit = "$(2)";
 if(/^f/i.test(unit)==true){
   scalar + ` °F is ` + ((scalar-32)*(5/9)).toFixed(2) + ` °C!`
@@ -16,9 +16,4 @@ else if (/^l/i.test(unit)==true || /^p/i.test(unit)==true) {
 else{
   'Sorry, I only know Fahrenheit, Celsius, kilograms, and pounds'
 }
-)
-
-$(eval
-  var f = parseFloat(13);
-  f + ` F is ` + ((f-32)*(5/9)).toFixed(3) + ` C!`;
 )
